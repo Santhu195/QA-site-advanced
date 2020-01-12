@@ -1,0 +1,610 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.one {
+    background-color: gray;
+}
+
+.one .right {
+    float: right;
+}
+.one .right input {
+    border: none;
+    background: transparent;
+}
+.one nav {
+    background-color: black;
+    padding: 10px 100px;
+}
+.one .navbar-brand {
+    padding-right: 300px;
+}
+.one .nav-item i {
+    color: white;
+}
+.one .nav-item a {
+    color: white !important;
+}
+.one .nav-item {
+    padding: 0 20px;
+}
+
+/* Navbar Dropdown */
+.one .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.one .dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.one .dropdown-content a {
+  color: black !important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.one .dropdown-content a:hover {
+    background-color: gray;
+    color: white !important;
+}
+
+/* Show the dropdown menu on hover */
+.one .dropdown:hover .dropdown-content {
+    display: block;
+    background: white;
+}
+.one .content button {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+}
+.one .text-box {
+    background-color: white;
+    color: white;
+    padding: 5px 10px;
+}
+.text-box input {
+    width: 85%;
+    border: none;
+}
+.two {
+    padding: 50px 0;
+    background-color: rgb(248, 243, 243);
+}
+
+.two .nav.link a {
+    text-decoration: none;
+    color: black !important;
+}
+.two .nav-item:hover {
+    background-color: gray;
+}
+
+.card-box {
+    background-color: white;
+    padding: 10px;
+    margin: 20px 0 20px -15px;
+}
+.card-box img, .left-box-user .col-2 img {
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+}
+.card-box a {
+    color: black;
+    text-decoration: none;
+}
+.card-box a:hover {
+    color: #ff7361;
+    text-decoration: none;
+}
+.card-box .col-10 button {
+    border: none;
+    padding: 5px;
+    font-size: 12px;
+    color: white;
+}
+.card-box .col-10 p {
+    font-size: 14px;
+}
+.cards-footer span {
+    padding: 5px;
+}
+
+.load-button {
+    background-color: blue;
+    padding: 10px 0;
+    width: 100%;
+}
+.load-button button {
+    border: none;
+    background: transparent;
+    color: white;
+    margin-left: 35%;
+}
+.load-button:hover {
+    background-color: black;
+}
+
+/* Ask_Question Left Part */
+
+.two .left-box-ask {
+    background-color: white;
+    padding: 20px;
+    /* margin: 20px 0 20px -15px; */
+}
+.two .form-control, .two .custom-file-label {
+    background-color: rgb(245, 243, 243);
+}
+.ask-button {
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+}
+.ask-button button, .ask-button a {
+    color: white;
+    text-decoration: none;
+}
+.ask-button button:hover, .ask-button a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: black;
+}
+.two input[type="checkbox"] {
+    background-color: gray;
+}
+/* Ask_Question Left Part */
+
+/* User Profile Left part */
+.two .left-box-user {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0 20px -15px;
+}
+/* User Profile Left part */
+
+/* Contact Us Page Body */
+
+.two .contactus-card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0 20px -15px;
+}
+.two .maps {
+ width: 95%;
+ margin: 0 auto;
+}
+
+.two .social-logos span {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin: 10px 5px 0 5px;
+}
+.two .social-logos i:hover {
+    background-color: black;
+}
+.two .social-logos i{
+    font-size: 20px;
+    padding: 5px 7px;
+    color: white;
+}
+
+/* Contact Us Page Body */
+
+/* User Login Left part */
+.two .left-box-login, .two .right-box-login {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0 20px -15px;
+}
+.two .right-box-login button {
+    background-color: blue;
+    border: none;
+    padding: 5px 10px;
+}
+.two .right-box-login button:hover, .two .left-box-login button:hover {
+    background-color: black;
+}
+/* User Login Left part */
+
+.right-card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+}
+.right-card h5 {
+    color: blue;
+}
+.right-card .col-2 i {
+    font-size: 42px;
+    color: white;
+}
+.right-card a>div:hover {
+    background-color: rgb(36, 31, 31) !important;
+    text-decoration: none;
+}
+.rtform div {
+    background-color: rgb(218, 208, 208);
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid gray;
+}
+.rtform input[type="text"],.rtform input[type="password"] {
+    border: none;
+    background: transparent;
+    padding: 0 5px;
+    width: 70%;
+}
+.rtform i {
+    color: black;
+    font-size: 24px;
+}
+.rtform button {
+    background-color: blue;
+    color: white;
+    width: 100%;
+    text-align: center;
+    border: none;
+    padding: 5px 0;
+}
+.rtform input[type="checkbox"] {
+    border: none;
+    background-color: blue;
+}
+.rtform .link a{
+    color: black;
+    margin-left: 40px;
+    text-decoration: none;
+}
+.rtform .link a:hover {
+    color: #ec4b36;
+    text-decoration: none;
+}
+.checkbox {
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox > span {
+    color: blue;
+    padding: 0rem 0.25rem;
+}
+
+.checkbox > input {
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid blue;
+    border-radius: 4px;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: blue;
+    cursor: pointer;
+  }
+
+.checkbox > input:checked {
+    border: 1px solid blue;
+    background-color: blue;
+}
+
+.checkbox > input:checked + span::before {
+    content: '\2713';
+    display: block;
+    text-align: center;
+    color: white;
+    position: absolute;
+    left: 0.3rem;
+    top: 0rem;
+}
+
+.right-card .col-4 img {
+    height: 60px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    padding: 2px;
+}
+.right-card .col-8 b {
+    color: blue;
+}
+
+.tags button {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+.tags button:hover {
+    background-color: blue;
+}
+
+.recentQues a {
+    color: black;
+    text-decoration: none;
+}
+.recentQues a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.footer {
+    background-color: rgb(66, 65, 65);
+}
+.footer h5 {
+    color: blue;
+    margin-top: 40px;
+}
+.footer small {
+    font-size: 14px;
+}
+.footer p, .footer small {
+    color: white;
+}
+.footer b {
+    color: blue;
+}
+.footer .col-md-2 a {
+    color: white;
+    text-decoration: none;
+}
+.footer .col-md-3 a:hover {
+    text-decoration: none;
+}
+
+.footer .logos span{
+    display: inline-block;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 5px;
+}
+.footer span i {
+    padding-top: 8px;
+    font-size: 20px;
+    text-decoration: none;
+}
+.footer span a {
+    text-decoration: none;
+    color: white;
+}
+.footer span a:hover{
+    text-decoration: none;
+    color: blue;
+}
+
+/* gotop */
+.go-top {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.one1 {
+    padding: 10px 100px;
+}
+.one2 {
+    padding: 50px 100px;
+}
+.marTop {
+    margin-top: 0;
+}
+.content {
+    padding: 10px 30px;
+}
+/* gotop */
+
+@media only screen and (max-width: 360px) {
+    .one1 {
+        padding: 5px 20px;
+    }
+    .one .navbar-brand {
+        padding-right: 100px;
+    }
+    .one nav {
+        padding: 10px;
+    }
+    .one nav button {
+        float: right;
+        margin-left: auto;
+    }
+    .one .right {
+        display: none;
+    }
+    .one2 {
+        padding: 10px 20px;
+    }
+    .one2 h2 {
+        font-size: 28px;
+    }
+    .one .text-box {
+        padding: 5px;
+    }
+    .text-box input {
+        width: 60%;
+    }
+    .one .content button {
+        padding: 5px;
+        font-size: 14px;
+    }
+    .load-button button {
+        margin-left: 20%;
+    }
+    .marTop {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 361px) and (max-width: 440px) {
+    .one1 {
+        padding: 5px 20px;
+    }
+    .one .navbar-brand {
+        padding-right: 100px;
+    }
+    .one nav {
+        padding: 10px 20px;
+    }
+    .one nav button {
+        float: right;
+        margin-left: auto;
+    }
+    .one .right {
+        display: none;
+    }
+    .one2 {
+        padding: 10px 30px;
+    }
+    .one2 h2 {
+        font-size: 28px;
+    }
+    .one .text-box {
+        padding: 5px;
+    }
+    .text-box input {
+        width: 60%;
+    }
+    .one .content button {
+        padding: 5px;
+        font-size: 14px;
+    }
+    .load-button button {
+        margin-left: 20%;
+    }
+    .marTop {
+        margin-top: 30px;
+    }
+    .two {
+        padding: 40px 20px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 575.98px) {
+    .one1 {
+        padding: 5px 20px;
+    }
+    .one .navbar-brand {
+        padding-right: 100px;
+    }
+    .one nav {
+        padding: 10px 30px;
+    }
+    .one nav button {
+        float: right;
+        margin-left: auto;
+    }
+    .one .right {
+        display: none;
+    }
+    .one2 {
+        padding: 10px 40px;
+    }
+    .one2 h2 {
+        font-size: 32px;
+    }
+    .one .text-box {
+        padding: 5px;
+    }
+    .text-box input {
+        width: 60%;
+    }
+    .one .content button {
+        padding: 5px;
+        font-size: 14px;
+    }
+    .load-button button {
+        margin-left: 30%;
+    }
+    .marTop {
+        margin-top: 30px;
+    }
+    .two {
+        padding: 50px 30px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+    .one1 {
+        padding: 5px 20px;
+    }
+    .one .navbar-brand {
+        padding-right: 100px;
+    }
+    .one nav {
+        padding: 10px 30px;
+    }
+    .one nav button {
+        float: right;
+        margin-left: auto;
+    }
+    .one2 {
+        padding: 10px 60px;
+    }
+    .one2 h2 {
+        font-size: 20px;
+    }
+    .one .text-box {
+        padding: 5px;
+    }
+    .text-box input {
+        width: 80%;
+    }
+    .marTop {
+        margin-top: 30px;
+    }
+    .two {
+        padding: 50px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+    .one .navbar-brand {
+        padding-right: 100px;
+    }
+    .one nav {
+        padding: 10px 50px;
+    }
+    .one nav button {
+        float: right;
+        margin-left: auto;
+    }
+    .content {
+        padding: 10px 30px;
+    }
+    .two {
+        padding: 50px 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .two {
+        padding: 50px 60px;
+    }
+}

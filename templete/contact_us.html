@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QA Forum</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Landing Page -->
+    <div class="one">
+        <div style="padding: 10px 100px;">
+            <span class="left">
+                <a class="text-white" href="./contact_us.html"><i class="fa fa-envelope"></i> Contact</a> |
+                <a class="text-white" href="./contact_us.html"><i class="fa fa-headphones"></i> Support</a> |
+                <a class="text-white" href="./login.html"><i class="fa fa-user"></i> Login</a>
+            </span>
+            <span class="right text-white">
+                <i class="fa fa-search"></i> <input type="text" placeholder="Search Here...">
+            </span>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light" style="padding: 10px 100px;">
+                <a class="navbar-brand" href="./index.html">
+                    <h3 class="text-white">Q&A</h3>
+                    <!-- <img src="#" alt="Logo" height="80"> -->
+                </a>
+                <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse"
+                    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home <span
+                                    class="sr-only">(current)</span>
+                                <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="./index.html">Home</a>
+                                <a class="dropdown-item" href="#">Home 1</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./ask_question.html">Ask Question</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions
+                                <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Questions Category</a>
+                                <a class="dropdown-item" href="#">Questions Single</a>
+                                <a class="dropdown-item" href="#">Poll Question Single</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User
+                                <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="./user_profile.html">User Profile</a>
+                                <a class="dropdown-item" href="#">User Questions</a>
+                                <a class="dropdown-item" href="#">User Answers</a>
+                                <a class="dropdown-item" href="#">User Point</a>
+                                <a class="dropdown-item" href="./user_profile.html">Edit Profile</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
+                                <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="./login.html">Login</a>
+                                <a class="dropdown-item" href="./contact_us.html">Contact Us</a>
+                                <a class="dropdown-item" href="./ask_question.html">Ask Question</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact_us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container text-white pt-3 pb-3">
+            <h2> Contact Us </h2>
+            <p> Home / Pages / <span class="text-dark">Contact Us</span> </p>
+        </div>
+    </div>
+
+    <div class="two">
+        <div class="container">
+            <div class="row">
+
+                <!-- Body Part -->
+                <div class="col-12 col-xs-12">
+                    <div class="contactus-card">
+                        <!-- Maps -->
+                        <div class="maps">
+                            <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                                <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="contactus-card">
+                        <h5 style="color: blue;">Say Hello !</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <p>
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore magni omnis, earum
+                                temporibus odit tenetur molestiae dicta eveniet consequatur quas?</small>
+                        </p>
+                        <form action="#">
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">
+                                    <small><b>Name <span style="color: red;">*</span></b></small>
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label">
+                                    <small><b>E-Mail <span style="color: red;">*</span></b></small>
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="website" class="col-sm-2 col-form-label">
+                                    <small><b>Website</b></small>
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="website">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label">
+                                    <small><b>Message <span style="color: red;">*</span></b></small>
+                                </label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="message" rows="6"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group ask-button">
+                                <a href="#">
+                                    <button type="button" class="btn btn-lg btn-block pt-0 pb-1">
+                                        <small><b>Send</b></small>
+                                    </button>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="contactus-card pb-4">
+                        <h5 style="color: blue;">About Us</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <p>
+                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus est tempore debitis
+                                illum temporibus nesciunt quod rem eveniet iure quasi, repudiandae dicta quaerat fuga
+                                repellat unde earum tempora voluptatum alias aliquid quibusdam optio atque maxime?
+                                Perspiciatis voluptatum praesentium totam et aliquam illum eveniet dolorem harum tempora
+                                molestias sapiente, veniam quidem dolor voluptates at fugiat? Est, facilis voluptate
+                                doloribus fugiat sunt sint consectetur quam eius eos cum blanditiis debitis esse
+                                corrupti.</small>
+                        </p>
+                        <div class="row">
+                            <div class="col-1 mt-2">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="col-11 mt-2">
+                                <small>
+                                    Address : <br>
+                                    54 Perry rd. Bangor, Me. 04401
+                                </small>
+                            </div>
+                            <div class="col-1 mt-2">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="col-11 mt-2">
+                                <small>
+                                    Phone number : <br>
+                                    (207)-947-1999
+                                </small>
+                            </div>
+                            <div class="col-1 mt-2">
+                                <i class="fa fa-fax"></i>
+                            </div>
+                            <div class="col-11 mt-2">
+                                <small>
+                                    Fax number : <br>
+                                    (207) 989-2880
+                                </small>
+                            </div>
+                            <div class="col-1 mt-2">
+                                <i class="fa fa-share-square"></i>
+                            </div>
+                            <div class="col-11 social-logos mt-2">
+                                <small>
+                                    Social Links : <br>
+                                    <span class="ml-0" style="background-color: rgb(90, 200, 243);">
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                    </span>
+                                    <span style="background-color: rgb(76, 76, 224)">
+                                        <a href="#"><i class="fa fa-facebook-f" style="padding: 5px 10px;"></i></a>
+                                    </span>
+                                    <span style="background-color: rgb(245, 81, 108)">
+                                        <a href="#"><i class="fa fa-foursquare" style="padding: 5px 8px;"></i></a>
+                                    </span>
+                                    <span style="background-color: rgb(153, 41, 41)">
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    </span>
+                                    <span style="background-color: rgb(73, 9, 9)">
+                                        <a href="#"><i class="fa fa-yelp"></i></a>
+                                    </span>
+                                    <span style="background-color: rgb(27, 150, 221);">
+                                        <a href="#"><i class="fa fa-instagram"></i></a>
+                                    </span>
+                                    <span style="background-color: rgb(26, 105, 209);">
+                                        <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                                    </span>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Body Part -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- topbar button -->
+    <div class="go-top" id='goTop' onclick="topFunction()">
+        <i class="fa fa-arrow-up"></i>
+    </div>
+    <!-- topbar button -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Where We Are ?</h5>
+                    <div class="mt-4">
+                        <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic rem nisi deserunt
+                                numquam
+                                eaque et modi optio beatae dolorem! Excepturi?</small></p>
+                        <p><b>Address :</b></p>
+                        <p><small>54 Perry rd. Bangor, Me. 04401</small></p>
+                        <p><b>Support :</b></p>
+                        <p><small>Telephone No : (207)-947-1999</small></p>
+                        <p><small>Fax : (207) 989-2880</small></p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5>Quick Links</h5>
+                    <div class="mt-4">
+                        <small>- <a href="#">Home</a></small> <br>
+                        <small>- <a href="#">Ask Question</a></small> <br>
+                        <small>- <a href="#">About</a></small> <br>
+                        <small>- <a href="#">Questions</a></small> <br>
+                        <small>- <a href="#">Users</a></small> <br>
+                        <small>- <a href="#">Blog</a></small> <br>
+                        <small>- <a href="#">Pages</a></small> <br>
+                        <small>- <a href="#">Contact Us</a></small> <br>
+                        <small>- <a href="#">FAQs</a></small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Popular Questions</h5>
+                    <div class="mt-4">
+                        <div>
+                            <a href="#">
+                                <span><b style="color: white;">This is my first Question</b></span>
+                            </a>
+                            <p>
+                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
+                                <br>
+                                <small style="color: blue;">Feb 05, 2019</small>
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <span><b style="color: white;">This is my first Question</b></span>
+                            </a>
+                            <p>
+                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
+                                <br>
+                                <small style="color: blue;">Feb 05, 2019</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Latest Tweets</h5>
+                    <div class="mt-4">
+                        <div>
+                            <small><i class="fa fa-twitter" style="color: blue;"></i> Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. At, eaque!</small>
+                            <br>
+                            <small style="color: blue;">about 18 hours ago</small>
+                        </div>
+                        <br>
+                        <div>
+                            <small><i class="fa fa-twitter" style="color: blue;"></i> Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. At, eaque!</small>
+                            <br>
+                            <small style="color: blue;">about 3 days ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 100%; border-top:1px solid lightgray;">
+            <div class="row">
+                <div class="col-md-7">
+                    <small>Copyright &copy; Q&A Forum.2020. All Rights Reserved</small>
+                </div>
+                <div class="col-md-5 logos">
+                    <span><a href="#"><i class="fa fa-twitter"></i></a></span>
+                    <span><a href="#"><i class="fa fa-facebook-f"></i></a></span>
+                    <span><a href="#"><i class="fa fa-foursquare"></i></a></span>
+                    <span><a href="#"><i class="fa fa-pinterest"></i></a></span>
+                    <span><a href="#"><i class="fa fa-yelp"></i></a></span>
+                    <span><a href="#"><i class="fa fa-instagram"></i></a></span>
+                    <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Landing Page -->
+
+
+    <!-- JavaScript Plugins -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        //scroll button
+        var scrollBtn = document.getElementById("goTop");
+        //screen scroll checking
+        window.onscroll = function () {
+            scrollTopFunction();
+        };
+        function scrollTopFunction() {
+            if (
+                document.body.scrollTop > 80 ||
+                document.documentElement.scrollTop > 80
+            ) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        }
+        //go to top onclick
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script>(function () {
+            var setting = { "height": 401, "width": 1280, "zoom": 17, "queryString": "54 Perry Rd, Bangor, ME 04401, USA", "place_id": "ChIJu9ysWXFLrkwRRO8puOTw3c0", "satellite": false, "centerCoord": [44.78430156576118, -68.79095995], "cid": "0xcdddf0e4b829ef44", "lang": "en", "cityUrl": "/us/me/bangor-3230", "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3", "embed_id": "134295" };
+            var d = document;
+            var s = d.createElement('script');
+            s.src = 'https://1map.com/js/script-for-user.js?embed_id=134295';
+            s.async = true;
+            s.onload = function (e) {
+                window.OneMap.initMap(setting)
+            };
+            var to = d.getElementsByTagName('script')[0];
+            to.parentNode.insertBefore(s, to);
+        })();
+    </script>
+</body>
+
+</html>

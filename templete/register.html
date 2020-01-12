@@ -1,0 +1,28 @@
+<!DOCTYPE >
+{% load static %}
+
+
+
+
+<form action = "register" class="register-form" method= "post">
+  {% csrf_token %}
+  <input type="text" name = "username" placeholder="name" required/>
+  <input type="password" name="password" placeholder="password" required/>
+  <input type="email" name="email" placeholder="email address" required/>
+  <button>create</button>
+  <p class="message">Already registered? <a href="/">Sign In</a></p>
+</form>
+
+<head>
+  <title>Register</title>
+
+</head>
+
+<div>
+  {%for message in messages %}
+  
+  <h3 style="text-align:center">{{message}}</h3>
+  
+  {%endfor%}
+ 
+</div>

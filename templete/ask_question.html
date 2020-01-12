@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QA Forum</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Landing Page -->
+    <div class="one">
+        <div style="padding: 10px 100px;">
+            <span class="left">
+                <a class="text-white" href="./contact_us.html"><i class="fa fa-envelope"></i> Contact</a> |
+                <a class="text-white" href="./contact_us.html"><i class="fa fa-headphones"></i> Support</a> 
+                 {% if user.is_not_authenticated%}
+                |
+                <a class="text-white" href="/"><i class="fa fa-user"></i> Login</a>
+                {% endif %}
+            </span>
+            <span class="right text-white">
+                <i class="fa fa-search"></i> <input type="text" placeholder="Search Here...">
+            </span>
+        </div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light" style="padding: 10px 100px;">
+                <a class="navbar-brand" href="./index.html">
+                    <h3 class="text-white">Q&A</h3>
+                    <!-- <img src="#" alt="Logo" height="80"> -->
+                </a>
+                <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse"
+                    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home <span
+                                    class="sr-only">(current)</span>
+                                <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="./index.html">Home</a>
+                                <a class="dropdown-item" href="#">Home 1</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./ask_question.html">Ask Question</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions
+                                <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Questions Category</a>
+                                <a class="dropdown-item" href="#">Questions Single</a>
+                                <a class="dropdown-item" href="#">Poll Question Single</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User
+                                <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="./user_profile.html">User Profile</a>
+                                <a class="dropdown-item" href="#">User Questions</a>
+                                <a class="dropdown-item" href="#">User Answers</a>
+                                <a class="dropdown-item" href="#">User Point</a>
+                                <a class="dropdown-item" href="./user_profile.html">Edit Profile</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages
+                                <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                            {% if user.is_not_authenticated%}
+                                <a class="dropdown-item" href="/">Login</a>
+                            {% endif %}
+                                <a class="dropdown-item" href="./contact_us.html">Contact Us</a>
+                                <a class="dropdown-item" href="./ask_question.html">Ask Question</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact_us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container text-white pt-3 pb-3">
+            <h2> Ask Questions </h2>
+            <p> Home / Pages / <span class="text-dark">Ask Questions</span> </p>
+        </div>
+    </div>
+
+    <div class="two">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                
+                <!-- Left Body Part -->
+                <div class="col-md-9">
+                    <div class="left-box-ask">
+                        <h4 style="color: blue;">Ask Question</h4>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <p><small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum ut reiciendis, vel
+                                magnam accusamus totam at tempora sapiente! Fuga odit exercitationem tempore sapiente
+                                ipsam facilis.</small></p>
+                        <div>
+                            <form action="ask_question" method="post">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <label for="quesTitle" class="col-sm-2 col-form-label">
+                                        <small><b>Question Title <span style="color: red;">*</span></b></small>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="title" class="form-control" id="quesTitle" value="" autocomplete="off" placeholder="What's your question's title?" required><p />
+                                        <small class="text-secondary">Please choose an appropriate title for the
+                                            question to answer it even easier.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tags" class="col-sm-2 col-form-label">
+                                        <small><b>Tags</b></small>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="tags" name="posted_by" value="" autocomplete="off" placeholder="Enter your Tag Name ..." required><p />
+                                        {% comment %} <input type="text" class="form-control" id="tags"> {% endcomment %}
+                                        <small class="text-secondary">Please choose suitable Keywords Ex : question,
+                                            poll.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="category" class="col-sm-2 col-form-label">
+                                        <small><b>Category <span style="color: red;">*</span></b></small>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select id="category" class="form-control">
+                                            <option selected value="Select Category" style="color: blue;"><small> Select
+                                                    Category</small></option>
+                                            <option value="Category1" style="color: blue;"><small> Category 1 </small>
+                                            </option>
+                                            <option value="Category2" style="color: blue;"><small> Category 2 </small>
+                                            </option>
+                                        </select>
+                                        <small class="text-secondary">Please choose the appropriate section so easily
+                                            search for your question.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tags" class="col-sm-2 col-form-label">
+                                        <small><b>Poll</b></small>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="pollCheck">
+                                            <label class="custom-control-label" for="pollCheck">This question is a poll?
+                                            </label>
+                                            <small class="text-secondary">If you want to be doing a poll click
+                                                here.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="tags" class="col-sm-2 col-form-label">
+                                        <small><b>Attachment</b></small>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">
+                                                <small style="color: blue;"> Select file </small></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="details" class="col-sm-2 col-form-label">
+                                        <small><b>Details <span style="color: red;">*</span></b></small>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <textarea name="question" class="form-control" id="details" rows="8" cols="80" placeholder="What's your question?" required></textarea><p />
+                                        {% comment %} <textarea class="form-control" id="details" rows="8"></textarea> {% endcomment %}
+                                        <small class="text-secondary">Type the description thoroughly and in
+                                            detail.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group ask-button">
+                                    <a href="welcome">
+                                        {% comment %} <input type="submit" value="Publish Your Question" class="btn btn-lg btn-block pt-0 pb-1">    {% endcomment %}
+                                        <button type="submit" class="btn btn-lg btn-block pt-0 pb-1">
+                                            <small><b>Publish Your Question</b></small>
+                                        </button>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Left Body Part -->
+                 {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+                <!-- Right Body Part -->
+                <div class="col-md-3">
+                    <div class="right-card mt-0">
+                        <h5>Stats</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ( {{count}} )</b> </p>
+                        <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ( {{count}} )</b></p>
+                    </div>
+
+                    <div class="right-card">
+                        <h5>Find Us</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <a href="#">
+                            <div class="text-white mt-2 mb-2 p-3" style="background-color: rgb(253, 169, 44);">
+                                <div class="row">
+                                    <div class="col-8">Subscribe <br> To RSS Feed</div>
+                                    <div class="col-2"><i class="fa fa-rss"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="text-white mt-2 mb-2 p-3" style="background-color: rgb(21, 8, 153)">
+                                <div class="row">
+                                    <div class="col-8">5,000 <br> People like it</div>
+                                    <div class="col-2"><i class="fa fa-facebook-f"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="text-white mt-2 mb-2 p-3" style="background-color: rgb(81, 167, 201)">
+                                <div class="row">
+                                    <div class="col-8">3,000 <br> Followers</div>
+                                    <div class="col-2"><i class="fa fa-twitter"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="text-white mt-2 mb-2 p-3" style="background-color: rgb(180, 14, 14)">
+                                <div class="row">
+                                    <div class="col-8">1,000 <br> Suscribers</div>
+                                    <div class="col-2"><i class="fa fa-play"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     {% if user.is_not_authenticated%}
+                    <div class="right-card rtform">
+                        <h5>Login</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <div>
+                            <i class="fa fa-user"></i>
+                            <input type="text" placeholder="Username">
+                        </div>
+                        <div>
+                            <i class="fa fa-lock"></i>
+                            <input type="password" placeholder="******">
+                        </div>
+                        <a href="#"><button>Login</button></a>
+                        <p class="mt-3">
+                            <label class="checkbox">
+                                <input type="checkbox"> <span> <small><b>Remember
+                                            Me</b></small></span>
+                            </label>
+                            <span class="link"><a href="#"><small>Register</small></a></span>
+                        </p>
+                    </div>
+                    {% endif %}
+                    <div class="right-card">
+                        <h5>Highest Points</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="https://png.pngitem.com/pimgs/s/24-248309_transparent-profile-clipart-font-awesome-user-circle-hd.png"
+                                    alt="Img">
+                            </div>
+                            <div class="col-8">
+                                <b>Admin</b>
+                                <p><small>12 points</small></p>
+                            </div>
+                            <div class="col-4">
+                                <img src="https://png.pngitem.com/pimgs/s/24-248309_transparent-profile-clipart-font-awesome-user-circle-hd.png"
+                                    alt="Img">
+                            </div>
+                            <div class="col-8">
+                                <b>Admin</b>
+                                <p><small>12 points</small></p>
+                            </div>
+                            <div class="col-4">
+                                <img src="https://png.pngitem.com/pimgs/s/24-248309_transparent-profile-clipart-font-awesome-user-circle-hd.png"
+                                    alt="Img">
+                            </div>
+                            <div class="col-8">
+                                <b>Admin</b>
+                                <p><small>12 points</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-card">
+                        <h5>Tags</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <div class="tags">
+                            <a href="#"><button>Projects</button></a>
+                            <a href="#"><button>Portfolio</button></a>
+                            <a href="#"><button>Wordpress</button></a>
+                            <a href="#"><button>HTML</button></a>
+                            <a href="#"><button>CSS</button></a>
+                            <a href="#"><button>jQuery</button></a>
+                            <a href="#"><button>2Code</button></a>
+                            <a href="#"><button>admin</button></a>
+                        </div>
+                    </div>
+
+                    <div class="right-card recentQues">
+                        <h5>Recent Questions</h5>
+                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                        <div>
+                            <a href="#">
+                                <span><b>This is my first Question</b></span>
+                            </a>
+                            <p>
+                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
+                                <br>
+                                <small>Feb 05, 2019</small>
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <span><b>This is my first Question</b></span>
+                            </a>
+                            <p>
+                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
+                                <br>
+                                <small>Feb 05, 2019</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Body Part -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- topbar button -->
+    <div class="go-top" id='goTop' onclick="topFunction()">
+        <i class="fa fa-arrow-up"></i>
+    </div>
+    <!-- topbar button -->
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Where We Are ?</h5>
+                    <div class="mt-4">
+                        <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic rem nisi deserunt
+                                numquam
+                                eaque et modi optio beatae dolorem! Excepturi?</small></p>
+                        <p><b>Address :</b></p>
+                        <p><small>54 Perry rd. Bangor, Me. 04401</small></p>
+                        <p><b>Support :</b></p>
+                        <p><small>Telephone No : (207)-947-1999</small></p>
+                        <p><small>Fax : (207) 989-2880</small></p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5>Quick Links</h5>
+                    <div class="mt-4">
+                        <small>- <a href="#">Home</a></small> <br>
+                        <small>- <a href="#">Ask Question</a></small> <br>
+                        <small>- <a href="#">About</a></small> <br>
+                        <small>- <a href="#">Questions</a></small> <br>
+                        <small>- <a href="#">Users</a></small> <br>
+                        <small>- <a href="#">Blog</a></small> <br>
+                        <small>- <a href="#">Pages</a></small> <br>
+                        <small>- <a href="#">Contact Us</a></small> <br>
+                        <small>- <a href="#">FAQs</a></small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Popular Questions</h5>
+                    <div class="mt-4">
+                        <div>
+                            <a href="#">
+                                <span><b style="color: white;">This is my first Question</b></span>
+                            </a>
+                            <p>
+                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
+                                <br>
+                                <small style="color: blue;">Feb 05, 2019</small>
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <span><b style="color: white;">This is my first Question</b></span>
+                            </a>
+                            <p>
+                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
+                                <br>
+                                <small style="color: blue;">Feb 05, 2019</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Latest Tweets</h5>
+                    <div class="mt-4">
+                        <div>
+                            <small><i class="fa fa-twitter" style="color: blue;"></i> Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. At, eaque!</small>
+                            <br>
+                            <small style="color: blue;">about 18 hours ago</small>
+                        </div>
+                        <br>
+                        <div>
+                            <small><i class="fa fa-twitter" style="color: blue;"></i> Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. At, eaque!</small>
+                            <br>
+                            <small style="color: blue;">about 3 days ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="width: 100%; border-top:1px solid lightgray;">
+            <div class="row">
+                <div class="col-md-7">
+                    <small>Copyright &copy; Q&A Forum.2020. All Rights Reserved</small>
+                </div>
+                <div class="col-md-5 logos">
+                    <span><a href="#"><i class="fa fa-twitter"></i></a></span>
+                    <span><a href="#"><i class="fa fa-facebook-f"></i></a></span>
+                    <span><a href="#"><i class="fa fa-foursquare"></i></a></span>
+                    <span><a href="#"><i class="fa fa-pinterest"></i></a></span>
+                    <span><a href="#"><i class="fa fa-yelp"></i></a></span>
+                    <span><a href="#"><i class="fa fa-instagram"></i></a></span>
+                    <span><a href="#"><i class="fa fa-linkedin-square"></i></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Landing Page -->
+
+
+    <!-- JavaScript Plugins -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        //scroll button
+        var scrollBtn = document.getElementById("goTop");
+        //screen scroll checking
+        window.onscroll = function () {
+            scrollTopFunction();
+        };
+        function scrollTopFunction() {
+            if (
+                document.body.scrollTop > 80 ||
+                document.documentElement.scrollTop > 80
+            ) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        }
+        //go to top onclick
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+
+</html>
