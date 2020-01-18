@@ -18,9 +18,16 @@
     <div class="one">
         <div style="padding: 10px 100px;">
             <span class="left">
-                <a class="text-white" href="./contact_us.html"><i class="fa fa-envelope"></i> Contact</a> |
-                <a class="text-white" href="./contact_us.html"><i class="fa fa-headphones"></i> Support</a> |
-                <a class="text-white" href="./login.html"><i class="fa fa-user"></i> Login</a>
+                <a class="text-white" href="/contact_us"><i class="fa fa-envelope"></i> Contact</a> |
+                <a class="text-white" href="/contact_us"><i class="fa fa-headphones"></i> Support</a> 
+                {% if user.is_authenticated%}
+                |
+                <h3>Welcome {{user.username}}</h3>
+                <a class="text-white" href="/logout"><i class="fa fa-user"></i> Logout</a>
+                {% else %}
+                |
+                <a class="text-white" href="/logout"><i class="fa fa-user"></i> Login</a>
+                {% endif %}
             </span>
             <span class="right text-white">
                 <i class="fa fa-search"></i> <input type="text" placeholder="Search Here...">
@@ -28,7 +35,7 @@
         </div>
         <div>
             <nav class="navbar navbar-expand-lg navbar-light" style="padding: 10px 100px;">
-                <a class="navbar-brand" href="./index.html">
+                <a class="navbar-brand" href="/">
                     <h3 class="text-white">Q&A</h3>
                     <!-- <img src="#" alt="Logo" height="80"> -->
                 </a>
@@ -48,12 +55,12 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./index.html">Home</a>
+                                <a class="dropdown-item" href="/">Home</a>
                                 <a class="dropdown-item" href="#">Home 1</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ask_question.html">Ask Question</a>
+                            <a class="nav-link" href="/ask_question">Ask Question</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
@@ -72,11 +79,11 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./user_profile.html">User Profile</a>
-                                <a class="dropdown-item" href="#">User Questions</a>
-                                <a class="dropdown-item" href="#">User Answers</a>
-                                <a class="dropdown-item" href="#">User Point</a>
-                                <a class="dropdown-item" href="./user_profile.html">Edit Profile</a>
+                                <a class="dropdown-item" href="/user_profile">User Profile</a>
+                                <a class="dropdown-item" href="/user_questions">User Questions</a>
+                                <a class="dropdown-item" href="/user_answers">User Answers</a>
+                                <a class="dropdown-item" href="/user_points">User Point</a>
+                                <a class="dropdown-item" href="/user_profile">Edit Profile</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -85,13 +92,15 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./login.html">Login</a>
-                                <a class="dropdown-item" href="./contact_us.html">Contact Us</a>
-                                <a class="dropdown-item" href="./ask_question.html">Ask Question</a>
+                                {% if user.is_not_authenticated%}
+                                <a class="dropdown-item" href="/">Login</a>
+                                {% endif %}
+                                <a class="dropdown-item" href="/contact_us">Contact Us</a>
+                                <a class="dropdown-item" href="/ask_question">Ask Question</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact_us.html">Contact Us</a>
+                            <a class="nav-link" href="/contact_us">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -99,8 +108,8 @@
         </div>
 
         <div class="container text-white pt-3 pb-3">
-            <h2> User Profile : admin </h2>
-            <p> Home / User / <span class="text-dark">User Profile: admin</span> </p>
+            <h2> User Profile : {{user.username}} </h2>
+            <p> Home / User / <span class="text-dark">User Profile:{{user.username}}</span> </p>
         </div>
     </div>
 
@@ -111,7 +120,7 @@
                 <!-- Left Body Part -->
                 <div class="col-md-9">
                     <div class="left-box-user mt-0">
-                        <h4 style="color: blue;">About Admin</h4>
+                        <h4 style="color: blue;">About {{user.username}}</h4>
                         <hr style="border-top: 1px solid lightgray; width:100%;">
                         <div class="row">
                             <div class="col-2">
@@ -142,14 +151,14 @@
                         <hr style="border-top: 1px solid lightgray; width:100%;">
                         <div class="row">
                             <div class="col-6">
-                                <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ( 30 )</b>
+                                <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ({{user_q}})</b>
                                 </p>
                             </div>
                             <div class="col-6">
-                                <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ( 10 )</b></p>
+                                <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ({{user_a}})</b></p>
                             </div>
                             <div class="col-6">
-                                <p class="bg-light p-2"><i class="fa fa-star"></i> <b>Favourite Questions ( 3 )</b>
+                                <p class="bg-light p-2"><i class="fa fa-star"></i> <b>Favourite Questions ({{user_q}})</b>
                                 </p>
                             </div>
                             <div class="col-6">
@@ -157,7 +166,7 @@
                                 </p>
                             </div>
                             <div class="col-6">
-                                <p class="bg-light p-2"><i class="fa fa-snowflake-o"></i> <b>Best Answers ( 2 )</b>
+                                <p class="bg-light p-2"><i class="fa fa-snowflake-o"></i> <b>Best Answers ({{user_a}})</b>
                                 </p>
                             </div>
                         </div>
@@ -202,8 +211,8 @@
                     <div class="right-card mt-0">
                         <h5>Stats</h5>
                         <hr style="border-top: 1px solid lightgray; width:100%;">
-                        <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ( 20 )</b> </p>
-                        <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ( 50 )</b></p>
+                        <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ({{count}})</b> </p>
+                        <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ({{count_answer}})</b></p>
                     </div>
 
                     <div class="right-card">
@@ -243,6 +252,7 @@
                         </a>
                     </div>
 
+                    {% if user.is_not_authenticated%}
                     <div class="right-card rtform">
                         <h5>Login</h5>
                         <hr style="border-top: 1px solid lightgray; width:100%;">
@@ -254,7 +264,8 @@
                             <i class="fa fa-lock"></i>
                             <input type="password" placeholder="******">
                         </div>
-                        <a href="#"><button>Login</button></a>
+                        
+                        <a href="/"><button>Login</button></a>
                         <p class="mt-3">
                             <label class="checkbox">
                                 <input type="checkbox"> <span> <small><b>Remember
@@ -263,9 +274,11 @@
                             <span class="link"><a href="#"><small>Register</small></a></span>
                         </p>
                     </div>
+                    {% endif %}
 
                     <div class="right-card">
                         <h5>Highest Points</h5>
+                        {% for user in users %}
                         <hr style="border-top: 1px solid lightgray; width:100%;">
                         <div class="row">
                             <div class="col-4">
@@ -273,10 +286,11 @@
                                     alt="Img">
                             </div>
                             <div class="col-8">
-                                <b>Admin</b>
+                                <b>{{user}}</b>
                                 <p><small>12 points</small></p>
                             </div>
-                            <div class="col-4">
+                            
+                            {% comment %} <div class="col-4">
                                 <img src="https://png.pngitem.com/pimgs/s/24-248309_transparent-profile-clipart-font-awesome-user-circle-hd.png"
                                     alt="Img">
                             </div>
@@ -291,8 +305,9 @@
                             <div class="col-8">
                                 <b>Admin</b>
                                 <p><small>12 points</small></p>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
+                        {% endfor %}
                     </div>
 
                     <div class="right-card">
@@ -311,27 +326,20 @@
                     </div>
 
                     <div class="right-card recentQues">
-                        <h5>Recent Questions</h5>
                         <hr style="border-top: 1px solid lightgray; width:100%;">
                         <div>
-                            <a href="#">
-                                <span><b>This is my first Question</b></span>
+                            <span style="font-size: 18px"><b><a href="/question/{{ latest.qid }}/{{ latest.slug }}"> {{ latest.question_title }} </a></b></span>
+                                {% comment %} <span><b>{{Latest.question_text}}</b></span> {% endcomment %}
                             </a>
-                            <p>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
-                                <br>
-                                <small>Feb 05, 2019</small>
-                            </p>
+                            <p>{{ latest.question_text}}</p>
+                            <small>{{latest.date_posted}}</small>
                         </div>
                         <div>
-                            <a href="#">
-                                <span><b>This is my first Question</b></span>
+                            <span style="font-size: 18px"><b><a href="/question/{{ latest1.qid }}/{{ latest1.slug }}"> {{ latest1.question_title }} </a></b></span>
+                                {% comment %} <span><b>{{Latest.question_text}}</b></span> {% endcomment %}
                             </a>
-                            <p>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
-                                <br>
-                                <small>Feb 05, 2019</small>
-                            </p>
+                            <p>{{ latest1.question_text}}</p>
+                            <small>{{latest1.date_posted}}</small>
                         </div>
                     </div>
                 </div>
@@ -367,14 +375,14 @@
                 <div class="col-md-2">
                     <h5>Quick Links</h5>
                     <div class="mt-4">
-                        <small>- <a href="#">Home</a></small> <br>
-                        <small>- <a href="#">Ask Question</a></small> <br>
-                        <small>- <a href="#">About</a></small> <br>
-                        <small>- <a href="#">Questions</a></small> <br>
+                        <small>- <a href="/">Home</a></small> <br>
+                        <small>- <a href="/ask_question">Ask Question</a></small> <br>
+                        <small>- <a href="/contact_us">About</a></small> <br>
+                        <small>- <a href="/user_questions">Questions</a></small> <br>
                         <small>- <a href="#">Users</a></small> <br>
                         <small>- <a href="#">Blog</a></small> <br>
                         <small>- <a href="#">Pages</a></small> <br>
-                        <small>- <a href="#">Contact Us</a></small> <br>
+                        <small>- <a href="/contact_us">Contact Us</a></small> <br>
                         <small>- <a href="#">FAQs</a></small>
                     </div>
                 </div>

@@ -1,11 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>{{ question.question_title }} - My Q&A</title>
-        {% comment %} <link rel="stylesheet" href="{% static 'style.css' %}"> {% endcomment %}
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QA Forum</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
     <body>
         <div class="content">
             <h1>{{ question.question_title }}</h1>
@@ -20,7 +25,7 @@
              <form class="reply" action="" method="post">
                 {% csrf_token %}
                 <textarea name="answer" id="answer" rows="8" cols="80" placeholder="What's your answer?" required></textarea><br />
-                <input type="text" id="posted_by" name="posted_by" value="" autocomplete="off" placeholder="Enter your name ..." required><br />
+                {% comment %} <input type="text" id="posted_by" name={{user.username}} value="" autocomplete="off" placeholder="Enter your name ..." required><br /> {% endcomment %}
                 <input type="hidden" id="qid" name="qid" value="{{ question.qid }}">
                 <input type="submit" id= "answer_question" name="answer_question" value="Answer Question">
                 

@@ -18,8 +18,8 @@
     <div class="one">
         <div style="padding: 10px 100px;">
             <span class="left">
-                <a class="text-white" href="./contact_us.html"><i class="fa fa-envelope"></i> Contact</a> |
-                <a class="text-white" href="./contact_us.html"><i class="fa fa-headphones"></i> Support</a> |
+                <a class="text-white" href="/contact_us"><i class="fa fa-envelope"></i> Contact</a> |
+                <a class="text-white" href="/contact_us"><i class="fa fa-headphones"></i> Support</a> |
                 <a class="text-white" href="/"><i class="fa fa-user"></i> Login</a>
             </span>
             <span class="right text-white">
@@ -28,7 +28,7 @@
         </div>
         <div>
             <nav class="navbar navbar-expand-lg navbar-light" style="padding: 10px 100px;">
-                <a class="navbar-brand" href="./index.html">
+                <a class="navbar-brand" href="/">
                     <h3 class="text-white">Q&A</h3>
                     <!-- <img src="#" alt="Logo" height="80"> -->
                 </a>
@@ -48,12 +48,12 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./index.html">Home</a>
+                                <a class="dropdown-item" href="/">Home</a>
                                 <a class="dropdown-item" href="#">Home 1</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./ask_question.html">Ask Question</a>
+                            <a class="nav-link" href="/ask_question">Ask Question</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
@@ -72,11 +72,11 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./user_profile.html">User Profile</a>
-                                <a class="dropdown-item" href="#">User Questions</a>
-                                <a class="dropdown-item" href="#">User Answers</a>
-                                <a class="dropdown-item" href="#">User Point</a>
-                                <a class="dropdown-item" href="./user_profile.html">Edit Profile</a>
+                                <a class="dropdown-item" href="/user_profile">User Profile</a>
+                                <a class="dropdown-item" href="/user_questions">User Questions</a>
+                                <a class="dropdown-item" href="/user_questions">User Answers</a>
+                                <a class="dropdown-item" href="/user_points">User Point</a>
+                                <a class="dropdown-item" href="/user_profile">Edit Profile</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -85,13 +85,15 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                                {% if user.is_not_authenticated%}
                                 <a class="dropdown-item" href="/">Login</a>
-                                <a class="dropdown-item" href="./contact_us.html">Contact Us</a>
-                                <a class="dropdown-item" href="./ask_question.html">Ask Question</a>
+                                {% endif %}
+                                <a class="dropdown-item" href="/contact_us">Contact Us</a>
+                                <a class="dropdown-item" href="/ask_question">Ask Question</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact_us.html">Contact Us</a>
+                            <a class="nav-link" href="/contact_us">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -123,7 +125,7 @@
                                 <i class="fa fa-lock"></i>
                                 <input type="password" name="password" placeholder="******" required/>
                                 </div>
-                                <button>login</button>
+                                <button type="submit" name='submit' value='sign_in'>login</button>
                             </form>
                         <p class="mt-3">
                             <label class="checkbox">
@@ -146,12 +148,59 @@
                                 fugiat.</small>
                         </p>
                         <span>
-                            <a href="register">
-                                <button class="text-white">Create an account</button>
+                            <!-- Button trigger modal -->
+                            <a href="/register">
+                                <button type="button" class="btn btn-primary">
+                                    Create an account
+                                </button>
                             </a>
                         </span>
                     </div>
                 </div>
+
+                {% comment %} <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle" >Register Now</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action ="register" class="register_form" method= "post">
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="username"><small><b>Username</b></small> <span
+                                                style="color: red;">*</span></label>
+                                        <input type="text" name = "username" class="form-control" id="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="emailInput"><small><b>E-Mail</b></small> <span
+                                                style="color: red;">*</span></label>
+                                        <input type="email" name="email" class="form-control" id="emailInput">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passwordInput"><small><b>Password</b></small> <span
+                                                style="color: red;">*</span></label>
+                                        <input type="password" name="password" class="form-control" id="passwordInput">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassInput"><small><b>Confirm Password</b></small> <span
+                                                style="color: red;">*</span></label>
+                                        <input type="password" class="form-control" id="confirmPassInput">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                <button type="submit" name='submit' value='sign_up' class="btn btn-primary w-100">Signup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
                 <!-- Right Body Part -->
 
             </div>
@@ -184,14 +233,14 @@
                 <div class="col-md-2">
                     <h5>Quick Links</h5>
                     <div class="mt-4">
-                        <small>- <a href="#">Home</a></small> <br>
-                        <small>- <a href="#">Ask Question</a></small> <br>
-                        <small>- <a href="#">About</a></small> <br>
-                        <small>- <a href="#">Questions</a></small> <br>
+                        <small>- <a href="/">Home</a></small> <br>
+                        <small>- <a href="/ask_question">Ask Question</a></small> <br>
+                        <small>- <a href="/contact_us">About</a></small> <br>
+                        <small>- <a href="/user_questions">Questions</a></small> <br>
                         <small>- <a href="#">Users</a></small> <br>
                         <small>- <a href="#">Blog</a></small> <br>
                         <small>- <a href="#">Pages</a></small> <br>
-                        <small>- <a href="#">Contact Us</a></small> <br>
+                        <small>- <a href="/contact_us">Contact Us</a></small> <br>
                         <small>- <a href="#">FAQs</a></small>
                     </div>
                 </div>
@@ -199,26 +248,21 @@
                     <h5>Popular Questions</h5>
                     <div class="mt-4">
                         <div>
-                            <a href="#">
-                                <span><b style="color: white;">This is my first Question</b></span>
+                            <span style="font-size: 18px"><b><a href="/question/{{ latest.qid }}/{{ latest.slug }}"> {{ latest.question_title }} </a></b></span>
+                                {% comment %} <span><b>{{Latest.question_text}}</b></span> {% endcomment %}
                             </a>
-                            <p>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
-                                <br>
-                                <small style="color: blue;">Feb 05, 2019</small>
-                            </p>
+                            <p>{{ latest.question_text}}</p>
+                            <small>{{latest.date_posted}}</small>
                         </div>
                         <div>
-                            <a href="#">
-                                <span><b style="color: white;">This is my first Question</b></span>
+                            <span style="font-size: 18px"><b><a href="/question/{{ latest1.qid }}/{{ latest1.slug }}"> {{ latest1.question_title }} </a></b></span>
+                                {% comment %} <span><b>{{Latest.question_text}}</b></span> {% endcomment %}
                             </a>
-                            <p>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
-                                <br>
-                                <small style="color: blue;">Feb 05, 2019</small>
-                            </p>
+                            <p>{{ latest1.question_text}}</p>
+                            <small>{{latest1.date_posted}}</small>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="col-md-3">
                     <h5>Latest Tweets</h5>

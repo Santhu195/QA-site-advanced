@@ -25,9 +25,14 @@ urlpatterns = [
     path('',include('QAapp.urls')),
     path('admin/', admin.site.urls),
     path('welcome', views.index),
-    # path('question/<int:qid>/<slug:qslug>',  views.viewquestion),
+    path('question/<int:qid>/<slug:qslug>',  views.viewquestion),
     path('ask_question',  views.askquestion),
-    #path('ajax-answer-question',  views.ajaxanswerquestion)
+    path('ajax-answer-question',  views.ajaxanswerquestion),
+    path('user_profile',  views.user_profile),
+    path('contact_us',  views.contact),
+    path('user_questions',  views.user_questions),
+    path('user_answers',  views.user_answers),
+    path('user_points',  views.user_points),
 ]
 
 #urlpatterns = urlpatterns + staticfiles_urlpatterns()

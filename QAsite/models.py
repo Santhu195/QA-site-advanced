@@ -7,6 +7,8 @@ class Question(models.Model):
     question_text = models.TextField(max_length=50000, null = True)
     date_posted = models.DateTimeField(auto_now_add=True)
     posted_by = models.TextField(max_length=20, null = True)
+    
+
     slug = models.SlugField(max_length=40, null = True)
 
     def save(self, *args, **kwargs):
@@ -19,3 +21,4 @@ class Answer(models.Model):
     answer_text = models.TextField(max_length=50000)
     date_posted = models.DateTimeField(auto_now_add=True)
     posted_by = models.TextField(max_length=20)
+

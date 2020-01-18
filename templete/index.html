@@ -19,11 +19,15 @@
     <div class="one">
         <div class="one1">
             <span class="left">
-                <a class="text-white" href="./contact_us.html"><i class="fa fa-envelope"></i> Contact</a> |
-                <a class="text-white" href="./contact_us.html"><i class="fa fa-headphones"></i> Support</a> 
-                {% if user.is_not_authenticated%}
+                <a class="text-white" href="/contact_us"><i class="fa fa-envelope"></i> Contact</a> |
+                <a class="text-white" href="/contact_us"><i class="fa fa-headphones"></i> Support</a> 
+                {% if user.is_authenticated%}
                 |
-                <a class="text-white" href="/"><i class="fa fa-user"></i> Login</a>
+                <h3>Welcome {{user.username}}</h3>
+                <a class="text-white" href="/logout"><i class="fa fa-user"></i> Logout</a>
+                {% else %}
+                |
+                <a class="text-white" href="/logout"><i class="fa fa-user"></i> Login</a>
                 {% endif %}
             </span>
             <span class="right text-white">
@@ -32,7 +36,7 @@
         </div>
         <div>
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="./index.html">
+                <a class="navbar-brand" href="/">
                     <h3 class="text-white">Q&A</h3>
                     <!-- <img src="#" alt="Logo" height="80"> -->
                 </a>
@@ -52,8 +56,8 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./index.html">Home</a>
-                                <a class="dropdown-item" href="#">Home 1</a>
+                                <a class="dropdown-item" href="/">Home</a>
+                                {% comment %} <a class="dropdown-item" href="#">Home 1</a> {% endcomment %}
                             </div>
                         </li>
                         <li class="nav-item">
@@ -76,11 +80,11 @@
                                 <i class="fa fa-chevron-down" style="font-size: 10px; "></i>
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="./user_profile.html">User Profile</a>
-                                <a class="dropdown-item" href="#">User Questions</a>
-                                <a class="dropdown-item" href="#">User Answers</a>
-                                <a class="dropdown-item" href="#">User Point</a>
-                                <a class="dropdown-item" href="./user_profile.html">Edit Profile</a>
+                                <a class="dropdown-item" href="/user_profile">User Profile</a>
+                                <a class="dropdown-item" href="/user_questions">User Questions</a>
+                                <a class="dropdown-item" href="/user_answers">User Answers</a>
+                                <a class="dropdown-item" href="/user_points">User Point</a>
+                                <a class="dropdown-item" href="/user_profile">Edit Profile</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -92,12 +96,12 @@
                                 {% if user.is_not_authenticated%}
                                 <a class="dropdown-item" href="/">Login</a>
                                 {% endif %}
-                                <a class="dropdown-item" href="./contact_us.html">Contact Us</a>
-                                <a class="dropdown-item" href="./ask_question.html">Ask Question</a>
+                                <a class="dropdown-item" href="/contact_us">Contact Us</a>
+                                <a class="dropdown-item" href="/ask_question">Ask Question</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact_us.html">Contact Us</a>
+                            <a class="nav-link" href="/contact_us">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -109,7 +113,7 @@
                 impedit, quas quod iusto accusantium nobis sint magni repellat! Officia, illum ex a id pariatur iusto
                 repudiandae!</p>
             <p>
-                <a href="#"><button>About Us</button></a>
+                <a href="/contact_us"><button>About Us</button></a>
                 {% if user.is_not_authenticated%}
                 <a href="/"><button>Join Now</button></a>
                 {% endif %}
@@ -133,9 +137,11 @@
                         <li class="nav-item">
                             <a class="nav-link active text-dark" data-toggle="tab" href="#recentqu">Recent
                                 Questions</a>
+                                
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" data-toggle="tab" href="#most">Most Responses</a>
+                            
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" data-toggle="tab" href="#recentans">Recently Answered</a>
@@ -157,21 +163,28 @@
                                             alt="Img">
                                     </div>
                                     <div class="col-10">
-                                        <span style="font-size: 24px"><a href="/question/{{ question.qid }}/{{ question.slug }}"> {{ question.question_title }} </a></span>
+                                        <span style="font-size: 24px"><a href="/question/{{ question.0.qid }}/{{ question.0.slug }}"> {{ question.0.question_title }} </a></span>
                                         <span style="float: right;">
                                             <a href="#"><button style="background-color: blue;"> ?
                                                     Question</button></a>
                                             <a href="#"><button style="background-color: black;">Report</button></a>
                                         </span> <br><br>
-                                        <p>{{ question.question_text}}</p>
+                                        <p>{{ question.0.question_text}}</p>
                                         <hr style="border-top: 1px solid lightgray; width:100%;">
                                         <p class="cards-footer">
+                                            {% if question.2 is True %}
                                             <span style="color: green;"><i class="fa fa-check"></i> solved</span>
-                                            <span style="color: rgb(221, 86, 8)"><i class="fa fa-star"></i> 5</span>
+                                            <span style="color: rgb(221, 86, 8)"><i class="fa fa-star"></i>{{question.1}}</span>
+                                            {% else %}
+                                            <span style="color: red;"><i class="fa fa-close"></i>Not solved</span>
+                                            {% endif %}
+                                            
                                             <span><i class="fa fa-folder"></i> wordpress</span>
-                                            <span><i class="fa fa-clock-o"></i> 4 mins ago</span>
-                                            <span><i class="fa fa-comment"></i> 5 Answer</span>
-                                            <span><i class="fa fa-user"></i> 70 views</span>
+                                            <span><i class="fa fa-clock-o"></i>{{question.0.date_posted}}</span>
+                                            
+                                            <span><i class="fa fa-comment"></i> {{question.1}} Answers</span>
+                                    
+                                            <span><i class="fa fa-user"></i> By {{question.0.posted_by}} </span>
                                         </p>
 
                                     </div>
@@ -179,8 +192,9 @@
                                 </div>
                             </div>
                             {% endfor %}
+                            
                         </div>
-                    </div>
+                    
                             {% comment %} <!-- Card Two -->
                             <div class="card-box">
                                 <div class="row">
@@ -430,16 +444,52 @@
 
                         </div> {% endcomment %}
                         <!-- Load More Button -->
-                            <a href="#">
+                            {% comment %} <a href="#">
                                 <div class="load-button">
                                     <button><i class="fa fa-refresh"></i> Load More Questions</button>
                                 </div>
-                            </a>
+                            </a> {% endcomment %}
+                            
                         <div id="most" class="container tab-pane fade"><br>
-                            <h3>Menu 1</h3>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.
-                            </p>
+                            
+                            {% for question in questions %}
+                            <!-- Card One -->
+                            <div class="card-box">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="https://png.pngitem.com/pimgs/s/24-248309_transparent-profile-clipart-font-awesome-user-circle-hd.png"
+                                            alt="Img">
+                                    </div>
+                                    <div class="col-10">
+                                        <span style="font-size: 24px"><a href="/question/{{ question.0.qid }}/{{ question.0.slug }}"> {{ question.0.question_title }} </a></span>
+                                        <span style="float: right;">
+                                            <a href="#"><button style="background-color: blue;"> ?
+                                                    Question</button></a>
+                                            <a href="#"><button style="background-color: black;">Report</button></a>
+                                        </span> <br><br>
+                                        <p>{{ question.0.question_text}}</p>
+                                        <hr style="border-top: 1px solid lightgray; width:100%;">
+                                        <p class="cards-footer">
+                                            {% if question.2 is True %}
+                                            <span style="color: green;"><i class="fa fa-check"></i> solved</span>
+                                            <span style="color: rgb(221, 86, 8)"><i class="fa fa-star"></i>{{question.1}}</span>
+                                            {% else %}
+                                            <span style="color: red;"><i class="fa fa-close"></i>Not solved</span>
+                                            {% endif %}
+                                            
+                                            <span><i class="fa fa-folder"></i> wordpress</span>
+                                            <span><i class="fa fa-clock-o"></i>{{question.0.date_posted}}</span>
+                                            
+                                            <span><i class="fa fa-comment"></i> {{question.1}} Answers</span>
+                                    
+                                            <span><i class="fa fa-user"></i> By {{question.0.posted_by}} </span>
+                                        </p>
+
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            {% endfor %}
                         </div>
                         <div id="recentans" class="container tab-pane fade"><br>
                             <h3>Menu 2</h3>
@@ -463,8 +513,8 @@
                         <div class="right-card mt-0">
                             <h5>Stats</h5>
                             <hr style="border-top: 1px solid lightgray; width:100%;">
-                            <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ({{count}} )</b> </p>
-                            <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ({{count}} )</b></p>
+                            <p class="bg-light p-2"><i class="fa fa-question-circle"></i> <b>Questions ({{count}})</b> </p>
+                            <p class="bg-light p-2"><i class="fa fa-comment"></i> <b>Answers ({{count_answer}})</b></p>
                         </div>
                     </div>
 
@@ -529,6 +579,7 @@
                     {% endif %}
                     <div class="right-card">
                         <h5>Highest Points</h5>
+                        {% for user in users %}
                         <hr style="border-top: 1px solid lightgray; width:100%;">
                         <div class="row">
                             <div class="col-4">
@@ -536,10 +587,11 @@
                                     alt="Img">
                             </div>
                             <div class="col-8">
-                                <b>Admin</b>
+                                <b>{{user}}</b>
                                 <p><small>12 points</small></p>
                             </div>
-                            <div class="col-4">
+                            
+                            {% comment %} <div class="col-4">
                                 <img src="https://png.pngitem.com/pimgs/s/24-248309_transparent-profile-clipart-font-awesome-user-circle-hd.png"
                                     alt="Img">
                             </div>
@@ -554,10 +606,11 @@
                             <div class="col-8">
                                 <b>Admin</b>
                                 <p><small>12 points</small></p>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
+                        {% endfor %}
                     </div>
-
+                    
                     <div class="right-card">
                         <h5>Tags</h5>
                         <hr style="border-top: 1px solid lightgray; width:100%;">
@@ -572,29 +625,23 @@
                             <a href="#"><button>admin</button></a>
                         </div>
                     </div>
-
+                    
                     <div class="right-card recentQues">
                         <h5>Recent Questions</h5>
                         <hr style="border-top: 1px solid lightgray; width:100%;">
                         <div>
-                            <a href="#">
-                                <span><b>This is my first Question</b></span>
+                            <span style="font-size: 18px"><b><a href="/question/{{ latest.qid }}/{{ latest.slug }}"> {{ latest.question_title }} </a></b></span>
+                                {% comment %} <span><b>{{Latest.question_text}}</b></span> {% endcomment %}
                             </a>
-                            <p>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
-                                <br>
-                                <small>Feb 05, 2019</small>
-                            </p>
+                            <p>{{ latest.question_text}}</p>
+                            <small>{{latest.date_posted}}</small>
                         </div>
                         <div>
-                            <a href="#">
-                                <span><b>This is my first Question</b></span>
+                            <span style="font-size: 18px"><b><a href="/question/{{ latest1.qid }}/{{ latest1.slug }}"> {{ latest1.question_title }} </a></b></span>
+                                {% comment %} <span><b>{{Latest.question_text}}</b></span> {% endcomment %}
                             </a>
-                            <p>
-                                <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eaque!</small>
-                                <br>
-                                <small>Feb 05, 2019</small>
-                            </p>
+                            <p>{{ latest1.question_text}}</p>
+                            <small>{{latest1.date_posted}}</small>
                         </div>
                     </div>
                 </div>
@@ -630,14 +677,14 @@
                 <div class="col-md-2">
                     <h5>Quick Links</h5>
                     <div class="mt-4">
-                        <small>- <a href="#">Home</a></small> <br>
-                        <small>- <a href="#">Ask Question</a></small> <br>
-                        <small>- <a href="#">About</a></small> <br>
-                        <small>- <a href="#">Questions</a></small> <br>
+                        <small>- <a href="/">Home</a></small> <br>
+                        <small>- <a href="/ask_question">Ask Question</a></small> <br>
+                        <small>- <a href="/contact_us">About</a></small> <br>
+                        <small>- <a href="/user_questions">Questions</a></small> <br>
                         <small>- <a href="#">Users</a></small> <br>
                         <small>- <a href="#">Blog</a></small> <br>
                         <small>- <a href="#">Pages</a></small> <br>
-                        <small>- <a href="#">Contact Us</a></small> <br>
+                        <small>- <a href="/contact_us">Contact Us</a></small> <br>
                         <small>- <a href="#">FAQs</a></small>
                     </div>
                 </div>

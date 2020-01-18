@@ -167,6 +167,37 @@
 }
 /* Ask_Question Left Part */
 
+/* User Points page */
+.left-box-user1 {
+    background-color: white;
+    padding: 15px 20px;
+    margin: 0;
+    border: 1px solid lightgray;
+}
+.left-box-user1 p span {
+    padding: 0 10px;
+}
+/* User Points page */
+
+/* User Qusetion Page */
+
+.left-box-user a, .left-box-user1 a {
+    color: black;
+    text-decoration: none;
+}
+.left-box-user a:hover, .left-box-user1 a:hover {
+    color: #ff7361;
+    text-decoration: none;
+}
+.left-box-user button {
+    border: none;
+    padding: 5px;
+    font-size: 12px;
+    color: white;
+}
+
+/* User Qusetion Page */
+
 /* User Profile Left part */
 .two .left-box-user {
     background-color: white;
